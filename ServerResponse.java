@@ -1,8 +1,13 @@
-import java.io.OutputStream;
-import java.io.IOException; 
-import java.io.FileInputStream; 
-import java.io.File; 
-
+import java.io.*; 
+// import java.io.IOException; 
+// import java.io.FileInputStream; 
+// import java.io.FileNotFoundException; 
+// import java.io.File; 
+// import java.io.PrintWriter;
+//import java.util.*; 
+import java.net.*;
+//import javax.servlet.ServletResponse; 
+//import javax.servlet.ServletOutputStream;
 public class ServerResponse 
 { 
 	public static int BUFFER_SIZE; 

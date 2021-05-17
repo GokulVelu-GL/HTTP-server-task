@@ -1,7 +1,13 @@
-import java.io.*;
+import java.io.*; 
+// import java.io.IOException; 
+// import java.io.BufferedReader; 
+// import java.io.UnsupportedEncodingException; 
+//import java.util.*; 
 import java.net.*;
-
-class ServerRequest
+//import javax.servlet.RequestDispatcher; 
+//import javax.servlet.ServletInputStream; 
+//import javax.servlet.ServletRequest;
+class ServerRequest 
 {
 	private InputStream input; 
 	private String uri; 

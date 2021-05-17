@@ -49,9 +49,26 @@ public class Server {
 
 				ServerResponse response = new ServerResponse(output); 
 				response.setRequest(request); 
-				response.sendStaticResource();
-
+				//response.sendStaticResource();
 				System.out.println("response");
+
+
+				//check if this is a request for a servlet or 
+				// a static resource 
+				// a request for a servlet begins with "/servlet/" 
+				if (request.getUri().startsWith("/servlet/")) 
+				{ 
+					ServletProcessor1 processor = new ServletProcessor1(); 
+					processor.process(request, response); 
+					System.out.println("Servlet Class request");
+				} 
+				else
+				{ 
+					StaticResourceProcessor processor = new StaticResourceProcessor(); 
+					processor.process(request, response); 
+
+					System.out.println("Static Class request");
+				}
 
 				socket.close();
 				shutdown = request.getUri().equals(SHUTDOWN_COMMAND);
