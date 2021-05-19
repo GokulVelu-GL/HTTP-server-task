@@ -10,7 +10,8 @@ public class ServletProcessor1
 { 
 	public void process(ServerRequest request, ServerResponse response) 
 	{ 
-		String uri = request.getUri(); 
+		String uri = request.getUri();
+		//String uri ="/servlet/PrimitiveServlet";
 		String servletName = uri.substring(uri.lastIndexOf("/") + 1); 
 		URLClassLoader loader = null; 
 		try 
@@ -21,21 +22,17 @@ public class ServletProcessor1
 		 	File classPath = new File(Server.File_dirc);
 		 	if (classPath.exists()) {
 		 		System.out.println(classPath);
+		 		System.out.println(servletName+"0000");
 		 	 	System.out.println("File exists");
 
 		 	 } 
 		 	 else{
 		 	 	System.out.println("File Not Found");
 		 	 }
-		 	// the forming of repository is taken from the 
-		 	// createClassLoader method in 
-		 	// org.apache.catalina.startup.ClassLoaderFactory 
 		 	String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString() ; 
 		 	System.out.println(repository);
-		 	// the code for forming the URL is taken from 
-		 	// the addRepository method in 
-		 	// org.apache.catalina.loader.StandardClassLoader. 
-		 	urls[0] = new URL(null, repository, streamHandler); 
+		 	urls[0] = new URL(null, repository, streamHandler);
+		 	System.out.println(urls); 
 		 	loader = new URLClassLoader(urls); 
 		 	System.out.println(loader);
 		 } 
@@ -46,6 +43,7 @@ public class ServletProcessor1
 		Class myClass = null; 
 		try 
 		{ 
+			System.out.println(servletName);
 			myClass = loader.loadClass(servletName); 
 		} 
 		catch (ClassNotFoundException e) 
