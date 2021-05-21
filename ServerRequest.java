@@ -6,8 +6,8 @@ import java.util.*;
 import java.net.*;
 import javax.servlet.*; 
 //import javax.servlet.ServletInputStream; 
-//import javax.servlet.ServletRequest;
-class ServerRequest 
+import javax.servlet.ServletRequest;
+public class ServerRequest implements ServletRequest
 {
 	private InputStream input; 
 	private String uri; 

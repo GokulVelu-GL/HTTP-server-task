@@ -8,7 +8,7 @@ import java.util.*;
 import java.net.*;
 import javax.servlet.*; 
 //import javax.servlet.ServletOutputStream;
-public class ServerResponse 
+public class ServerResponse implements ServletResponse
 { 
 	public static int BUFFER_SIZE; 
 	String contentType = "text/html";
@@ -92,6 +92,7 @@ public class ServerResponse
 			 fis.close(); 
 		} 
 	}
+
 	/** implementation of ServletResponse */ 
 	public void flushBuffer() throws IOException {}
 	public int getBufferSize() { return 0; } 

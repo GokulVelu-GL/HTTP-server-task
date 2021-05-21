@@ -31,6 +31,7 @@ public class ServletProcessor1
 		 	 }
 		 	String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString() ; 
 		 	System.out.println(repository);
+		 	System.out.println(streamHandler);
 		 	urls[0] = new URL(null, repository, streamHandler);
 		 	System.out.println(urls); 
 		 	loader = new URLClassLoader(urls); 
@@ -43,16 +44,18 @@ public class ServletProcessor1
 		Class myClass = null; 
 		try 
 		{ 
-			System.out.println(servletName);
+			
 			myClass = loader.loadClass(servletName); 
 		} 
 		catch (ClassNotFoundException e) 
 		{ 
+			//System.out.println("ClassNotFoundException");
 			System.out.println(e.toString()); 
 		} 
 		Servlet servlet = null; 
 		try 
 		{ 
+
 			servlet = (Servlet) myClass.newInstance(); 
 			servlet.service((ServletRequest) request, (ServletResponse) response); 
 		} 
